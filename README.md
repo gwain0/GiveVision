@@ -9,4 +9,4 @@ There is a link to downgrade your glass firmware to XE11 so that we can run Rail
 
 Very important stuff from Open Shades project: https://github.com/jaredsburrows/OpenQuartz and here https://github.com/wearscript and http://www.wearscript.com/en/latest/
 
-Thats the link with files for Launchy
+Thats the link with files for Launchy https://github.com/kaze0/launchy
