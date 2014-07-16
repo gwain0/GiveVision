@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+D:\dev\android\workspace\GiveVision\MindCap\.metadata\.plugins\org.eclipse.jdt.core
-2717238000.index
-3434246479.index

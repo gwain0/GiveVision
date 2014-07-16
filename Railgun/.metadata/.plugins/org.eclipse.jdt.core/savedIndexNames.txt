@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+D:\dev\android\workspace\GiveVision\Railgun\.metadata\.plugins\org.eclipse.jdt.core
-1869285854.index
-3783032822.index
