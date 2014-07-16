@@ -25,34 +25,6 @@
 
 package com.lambdal.mindcap;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
-import java.util.Properties;
-
-import android.content.Context;
-import android.app.Activity;
-import android.graphics.ImageFormat;
-import android.hardware.Camera;
-import android.os.Handler;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.widget.Toast;
-import java.lang.Runnable;
-import android.os.PowerManager;
-import android.os.PowerManager.WakeLock;
-
 public class MindCap extends Activity {
 
 private WakeLock m_wakeLock;
