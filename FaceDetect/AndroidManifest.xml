@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest android:versionCode="1"
           android:versionName="1.0"
-          package="com.lambdal.mindcap"
+          package="com.givevision.facedetect"
           xmlns:android="http://schemas.android.com/apk/res/android">
           
-  <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="19" android:maxSdkVersion="19"/>
+  <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="19" android:maxSdkVersion="19"/>
   <supports-screens android:largeScreens="false"
                     android:normalScreens="true"
                     android:smallScreens="false" android:xlargeScreens="true"/>
@@ -17,10 +17,10 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WAKE_LOCK" />
   <application android:icon="@drawable/ic_launcher"
-               android:label="@string/app_name">
+               android:label="@string/app_name" android:clearTaskOnLaunch="true" android:launchMode="singleInstance">
     <activity android:configChanges="keyboardHidden|orientation"
               android:label="@string/app_name"
-              android:name=".MindCap"
+              android:name=".FaceDetect"
               android:screenOrientation="landscape">
               
       <intent-filter>

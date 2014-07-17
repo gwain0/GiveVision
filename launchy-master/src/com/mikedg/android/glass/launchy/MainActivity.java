@@ -64,26 +64,31 @@ public class MainActivity extends Activity {
 		//list.setSelection(0);
 
 		// added in 15/07/14
-		final List<String> listApp = new ArrayList<String>();
+		//final List<String> listApp = new ArrayList<String>();
 		
-		listApp.add("com.lambdal.mindcap");
-		listApp.add("com.givevision.blind");		
+		//listApp.add("com.lambdal.mindcap");
+		//listApp.add("com.givevision.blind");		
 		
-		for(int x=0; x<=listApp.size(); x++){
-			for(int y=0; y<=list.getCount(); y++){
-				list.setSelection(y);
-				ApplicationInfo app = (ApplicationInfo) list.getItemAtPosition(list.getSelectedItemPosition());
-				if(app.intent.getPackage().equalsIgnoreCase(listApp.get(x))){
-					startActivity(app.intent);    
-				}
-			}
-		}
-		// removed in 15/07/14
-		//if(list.getCount()>1){
-		//	list.setSelection(1);			
-		//}else{
-		//	list.setSelection(0);
+		//for(int x=0; x<=listApp.size(); x++){
+		//	for(int y=0; y<=list.getCount(); y++){
+		//		list.setSelection(y);
+		//		System.out.println("onGesture:"+list.getSelectedItemPosition());
+		//		ApplicationInfo app = (ApplicationInfo) list.getItemAtPosition(list.getSelectedItemPosition());
+		//		System.out.println("package name:"+app.intent.getPackage());
+		//		if(app.intent.getPackage().equalsIgnoreCase(listApp.get(x))){
+		//			startActivity(app.intent);    
+		//		}
+		//	}
 		//}
+		// removed in 15/07/14
+		if(list.getCount()>1){
+			list.setSelection(1);			
+		}else{
+			list.setSelection(0);
+		}
+		//System.out.println("item selected:"+list.getSelectedItemPosition());
+		//ApplicationInfo app = (ApplicationInfo) list.getItemAtPosition(list.getSelectedItemPosition());
+		//System.out.println("package name:"+app.intent.getPackage());
 		//startActivity(app.intent); 
 		
 		//end modification 

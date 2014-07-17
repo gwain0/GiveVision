@@ -134,7 +134,7 @@ private Runnable m_photoLooper = new Runnable()
     preview=(SurfaceView)findViewById(R.id.preview);
     previewHolder=preview.getHolder();
     previewHolder.addCallback(surfaceCallback);
-    previewHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+    //previewHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
     // Do it!
     m_handler = new Handler();
@@ -146,7 +146,7 @@ private Runnable m_photoLooper = new Runnable()
   public void onResume() {
     super.onResume();
 
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
       Camera.CameraInfo info=new Camera.CameraInfo();
 
       for (int i=0; i < Camera.getNumberOfCameras(); i++) {
