@@ -28,7 +28,7 @@ public class Database {
         	//Establishes a connection
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager
-                    .getConnection("jdbc:sqlite:C:\\Users\\Mariam\\Documents\\GoogleApp\\Peopleinfo.sqlite");
+                    .getConnection("jdbc:sqlite:C:\\Users\\Mariam\\Desktop\\GiveVision\\Database\\PeopleInfo.sqlite);
 
 
             statement = connection.createStatement();
