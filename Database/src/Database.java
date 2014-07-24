@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 import java.io.*;
 
-// new commit opens up
+
 
 public class Database {
 
@@ -25,10 +25,10 @@ public class Database {
 
 
         try {
-        	//Establishes a connection
+        	////Establishes a connection
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager
-                    .getConnection("jdbc:sqlite:C:\\Users\\Mariam\\Desktop\\GiveVision\\Database\\PeopleInfo.sqlite);
+                    .getConnection("jdbc:sqlite:C:\\Users\\Mariam\\Documents\\GoogleApp\\Peopleinfo.sqlite");
 
 
             statement = connection.createStatement();
@@ -47,7 +47,7 @@ public class Database {
                 	 System.out.println("Image exists");
                 		//inserts in to the database and updates
                         String sql = "INSERT INTO PeoplesInfo (Name,bio,Image) " +
-                                "VALUES ('John','California','C:\\Users\\Mariam\\Documents\\GoogleApp\\images\\upload.png');"; 
+                                "VALUES ('Aqib','California','C:\\Users\\Mariam\\Documents\\GoogleApp\\images\\upload.png');"; 
                         statement.executeUpdate(sql);
                         
                        
@@ -63,15 +63,24 @@ public class Database {
             else {
 
             	// if the database is not empty it'll insert Aqib in to he datatbase
-                String sql = "INSERT INTO PeoplesInfo (Name,bio,Image) " +
-                        "VALUES ('Aqib','California','C:\\Users\\Mariam\\Documents\\GoogleApp\\images\\upload.png');"; 
+            	  File f = new File ("C:\\Users\\Mariam\\Documents\\GoogleApp\\images\\upload.png");
+
+                  
+                  if (f.exists()){
+                  	//prints out a statement saying the image exists
+                  	 System.out.println("Image exists");
+            	
+            	
+            	
+            	String sql = "INSERT INTO PeoplesInfo (Name,bio,Image) " +
+                        "VALUES ('john','California','C:\\Users\\Mariam\\Documents\\GoogleApp\\images\\upload.png');"; 
                 statement.executeUpdate(sql);
 
                 System.out.println("Record added");
 
 
             }
-
+            }
 
             
             resultSet = statement

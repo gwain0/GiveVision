@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 
 public class DataViewer extends JFrame {
@@ -62,7 +64,7 @@ public class DataViewer extends JFrame {
 		people = databasePeople;
 		peopleSize = people.size();
 		count = 0;
-
+		// this is comment to show Aqib commit function
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 477, 356);
@@ -98,7 +100,7 @@ public class DataViewer extends JFrame {
 	 private void setPerson(){
 
 	NameField = new JTextField();
-	NameField.setBounds(56, 36, 176, 35);
+	NameField.setBounds(138, 36, 176, 35);
 	contentPane.add(NameField);
 	NameField.setColumns(10);
 	
@@ -106,22 +108,18 @@ public class DataViewer extends JFrame {
 	
 	
 	BioField = new JTextField();
-	BioField.setBounds(56, 82, 176, 35);
+	BioField.setBounds(138, 82, 176, 35);
 	contentPane.add(BioField);
 	BioField.setColumns(10);
 	
 	BioField.setText(people.get(count).getBio());
 	
 	ImageField = new JTextField();
-	ImageField.setBounds(56, 138, 176, 35);
+	ImageField.setBounds(138, 128, 176, 35);
 	contentPane.add(ImageField);
 	ImageField.setColumns(10);
 	
 	ImageField.setText(people.get(count).getImage());
-	
-	JPanel panel = new JPanel();
-	panel.setBounds(305, 47, 103, 132);
-	contentPane.add(panel);
 	
 	JButton btnDelete = new JButton("Delete Record");
 	btnDelete.addActionListener(new ActionListener() {
@@ -171,6 +169,18 @@ public class DataViewer extends JFrame {
 	});
 	btnDelete.setBounds(279, 199, 112, 23);
 	contentPane.add(btnDelete);
+	
+	JLabel lblName = new JLabel("Name:");
+	lblName.setBounds(61, 39, 50, 29);
+	contentPane.add(lblName);
+	
+	JLabel lblBio = new JLabel("Bio:");
+	lblBio.setBounds(61, 92, 46, 14);
+	contentPane.add(lblBio);
+	
+	JLabel lblImage = new JLabel("Image:");
+	lblImage.setBounds(61, 138, 46, 14);
+	contentPane.add(lblImage);
 	
 	
 }
