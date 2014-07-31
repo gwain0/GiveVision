@@ -8,3 +8,5 @@ There is a link to downgrade your glass firmware to XE11 so that you can run Rai
 Very important stuff from Open Shades project: https://github.com/jaredsburrows/OpenQuartz and here https://github.com/wearscript and http://www.wearscript.com/en/latest/
 
 Thats the link with files for Launchy https://github.com/kaze0/launchy
+
+Source code for working Face recognition in Java: https://code.google.com/p/javacv/source/browse/samples/FaceRecognition.java?r=02385ce192fb82f1668386e55ff71ed8d6f88ae3
