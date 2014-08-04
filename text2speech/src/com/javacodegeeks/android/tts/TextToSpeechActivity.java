@@ -12,79 +12,57 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class TtsActivity extends Activity implements OnInitListener {
+public class TextToSpeechActivity extends Activity implements OnInitListener {
 	
 		
 	private int MY_DATA_CHECK_CODE = 0;
-	
+	private static final int SPEECH_SENT = 1;
 	private TextToSpeech tts;
-	
-	private EditText inputText;
-	private Button speakButton;
+	private String recognisedText;
     
 	@Override
     public void onCreate(Bundle savedInstanceState) {
 		
         super.onCreate(savedInstanceState);
+    
+        Intent intent = getIntent();
+        recognisedText = intent.getStringExtra(SpeechToTextActivity.EXTRA_MESSAGE);
+        
         setContentView(R.layout.main);
-        
-        inputText = (EditText) findViewById(R.id.input_text);
-        speakButton = (Button) findViewById(R.id.speak_button);
-        
-        tts = new TextToSpeech (TtsActivity.this, new TextToSpeech.OnInitListener() {
-			
+
+        tts = new TextToSpeech (TextToSpeechActivity.this, new TextToSpeech.OnInitListener() {
 			@Override
 			public void onInit(int status) {
 				if(status != TextToSpeech.ERROR){
 					tts.setLanguage(Locale.UK);
-					}
-				
-			}
-		});  
-   
-        speakButton.setOnClickListener(new OnClickListener() {			
-			@Override
-			public void onClick(View v) {
-				//String text = inputText.getText().toString();
-				String text = "Morrisons is two hundred feet ahead";
-				//if (text!=null && text.length()>0) {
-					//Toast.makeText(TtsActivity.this, "Saying: " + text, Toast.LENGTH_LONG).show();
-					tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-					
-				}
-				
-			
-			});
-        
-   
-        
-        Intent checkIntent = new Intent();
+					}}});  
+
+	    Intent checkIntent = new Intent();
 		checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
 		startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
-		
     }
-	
+
 	@Override
 	protected void onResume(){
 			super.onResume();
-			//String text = inputText.getText().toString();
-			String text = "Morrisons is two hundred feet ahead";
 			//if (text!=null && text.length()>0) {
 				//Toast.makeText(TtsActivity.this, "Saying: " + text, Toast.LENGTH_LONG).show();
-				tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-				
-		
-
-    
-		    Intent checkIntent = new Intent();
-			checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-			startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
+			tts.speak(recognisedText, TextToSpeech.QUEUE_FLUSH, null);
+			
 	}
+	
+	
+
+	
+	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == MY_DATA_CHECK_CODE) {
 			if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
 				// success, create the TTS instance
 				//tts = new TextToSpeech(this, this);
+				setResult(SPEECH_SENT);
+				tts.shutdown();
+				finish();
 			} 
 			else {
 				// missing data, install it
@@ -93,13 +71,14 @@ public class TtsActivity extends Activity implements OnInitListener {
 				startActivity(installIntent);
 			}
 		}
-	
 	}
-
+	
 	@Override
 	public void onInit(int status) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+
 	
 }

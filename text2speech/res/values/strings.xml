@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="hello">Hello World, TtsActivity!</string>
     <string name="app_name">TextToSpeech</string>
+    <string name="title_activity_speech_to_text">SpeechToTextActivity</string>
+
 </resources>
