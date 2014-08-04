@@ -25,33 +25,39 @@ public class SpeechToTextActivity extends Activity {
 	}
 
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode,
-	        Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		
+    	Log.i("speechToTextActivity","This is OnActivityResult");
+
 	    if (requestCode == SPEECH_REQUEST && resultCode == RESULT_OK) {
 		        List<String> results = data.getStringArrayListExtra(
 		                RecognizerIntent.EXTRA_RESULTS);
 		        String spokenText = results.get(0);
 		        Log.i("speechToTextActivity",spokenText);
-		       // if(spokenText.isEmpty()){finish();}
 		        // Do something with spokenText.
 		        Intent intent = new Intent(this, TextToSpeechActivity.class);
 			    intent.putExtra(EXTRA_MESSAGE, spokenText);
 			    startActivityForResult(intent,SPEECH_SENT);
-			    finish();
+		    	Log.i("speechToTextActivity","Starting TTS");
+			   // finish();
 	     }
 	    if (requestCode == SPEECH_SENT && resultCode == RESULT_OK){
+	    	Log.i("speechToTextActivity","returned from TTS");
 	        	Log.i("speechToTextActivity","speech is ok!");
 	        	finish();
 	    }    
+		super.onActivityResult(requestCode, resultCode, data);
+
 	    
 	}
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.activity_speech_to_text);
 		displaySpeechRecognizer();
 	}
+	
+
+	
 	
 }

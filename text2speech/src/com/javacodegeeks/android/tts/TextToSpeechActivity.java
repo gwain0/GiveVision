@@ -4,8 +4,10 @@ import java.util.Locale;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -27,52 +29,27 @@ public class TextToSpeechActivity extends Activity implements OnInitListener {
     
         Intent intent = getIntent();
         recognisedText = intent.getStringExtra(SpeechToTextActivity.EXTRA_MESSAGE);
-        
-        setContentView(R.layout.main);
+        Log.i("TextToSpeechActivity","recognisedText = "+recognisedText);
 
         tts = new TextToSpeech (TextToSpeechActivity.this, new TextToSpeech.OnInitListener() {
 			@Override
 			public void onInit(int status) {
 				if(status != TextToSpeech.ERROR){
-					tts.setLanguage(Locale.UK);
+					tts.setLanguage(Locale.UK);	
+					tts.speak(recognisedText, TextToSpeech.QUEUE_FLUSH, null);
+					setResult(RESULT_OK);
+					while(tts.isSpeaking());
+				       tts.shutdown();
+						finish();
 					}}});  
-
-	    Intent checkIntent = new Intent();
-		checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-		startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
+               
+	//    Intent checkIntent = new Intent();
+	//	checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+	//	startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
+		
+		
     }
 
-	@Override
-	protected void onResume(){
-			super.onResume();
-			//if (text!=null && text.length()>0) {
-				//Toast.makeText(TtsActivity.this, "Saying: " + text, Toast.LENGTH_LONG).show();
-			tts.speak(recognisedText, TextToSpeech.QUEUE_FLUSH, null);
-			
-	}
-	
-	
-
-	
-	
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == MY_DATA_CHECK_CODE) {
-			if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
-				// success, create the TTS instance
-				//tts = new TextToSpeech(this, this);
-				setResult(SPEECH_SENT);
-				tts.shutdown();
-				finish();
-			} 
-			else {
-				// missing data, install it
-				Intent installIntent = new Intent();
-				installIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-				startActivity(installIntent);
-			}
-		}
-	}
-	
 	@Override
 	public void onInit(int status) {
 		// TODO Auto-generated method stub
