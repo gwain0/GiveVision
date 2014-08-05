@@ -28,7 +28,7 @@ public class TextToSpeechActivity extends Activity implements OnInitListener {
         super.onCreate(savedInstanceState);
     
         Intent intent = getIntent();
-        recognisedText = intent.getStringExtra(SpeechToTextActivity.EXTRA_MESSAGE);
+        recognisedText = intent.getStringExtra("spokenText");
         Log.i("TextToSpeechActivity","recognisedText = "+recognisedText);
 
         tts = new TextToSpeech (TextToSpeechActivity.this, new TextToSpeech.OnInitListener() {
@@ -55,6 +55,8 @@ public class TextToSpeechActivity extends Activity implements OnInitListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
+
 	
 
 	
