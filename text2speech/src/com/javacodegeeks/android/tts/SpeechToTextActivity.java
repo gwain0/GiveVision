@@ -41,6 +41,7 @@ public class SpeechToTextActivity extends Activity {
 	        	Log.i("speechToTextActivity","speech is ok!");
 	        	Intent result = new Intent();
 	        	result.putExtra("spokenText", spokenText);
+	        	setResult(RESULT_OK,result);
 	        	finish();
 	    }    
 		super.onActivityResult(requestCode, resultCode, data);
@@ -54,3 +55,7 @@ public class SpeechToTextActivity extends Activity {
 		displaySpeechRecognizer();
 	}
 	
+
+	
+	
+}

@@ -58,6 +58,4 @@ public class TextToSpeechActivity extends Activity implements OnInitListener {
 	
 
 	
-
-	
 }
