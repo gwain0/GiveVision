@@ -12,3 +12,5 @@ Thats the link with files for Launchy https://github.com/kaze0/launchy
 Source code for working Face recognition in Java: https://code.google.com/p/javacv/source/browse/samples/FaceRecognition.java?r=02385ce192fb82f1668386e55ff71ed8d6f88ae3
 
 Face recognition accuracy here:  http://answers.opencv.org/question/5651/face-recognition-with-opencv-24x-accuracy/  and here http://answers.opencv.org/question/1929/facerecognizer-in-opencv-python-farfrr/?answer=2155
+
+How to pull files from glass and find paths to packages: http://stackoverflow.com/questions/4032960/how-do-i-get-an-apk-file-from-an-android-device
